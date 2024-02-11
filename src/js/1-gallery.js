@@ -1,3 +1,12 @@
+
+import simpleLightbox from "simplelightbox";
+import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
+
+console.log(simpleLightbox)
+
+const lightbox = new SimpleLightbox('.gallery a', { /* options */ });
+
 const images = [
   {
     preview:
@@ -73,6 +82,7 @@ function createCardMarkup({ preview, original, description }) {
                 src="${preview}"
                 data-source="${original}"
                 alt="${description}"/>
+                
             </a>
         </li>`;
   return markup;
@@ -82,28 +92,17 @@ let markup = "";
 for (let image of images) {
   markup += createCardMarkup(image);
 }
-
-// клік на пусте поле
 container.innerHTML = markup;
-container.addEventListener("click", (event) => {
-  if (event.target === event.currentTarget) {
-    return;
-  }
-  {
-    console.log(event.target.dataset.source);
-  }
-  const dataSource = event.target.getAttribute("data-source");
-  const description = event.target.getAttribute(`alt`);
-  basicLightbox.create(
-      `<div class="modal">
-    <img src="${dataSource}"
-    alt=""
-    width="1280" height="900"/>
-</div>`,
-    ).show();
+
+new SimpleLightbox('.gallery a', { 
+  captionsData: 'alt',
+  captionDelay: 250,
+
 });
 
-// зупиняє загрузку
+// // зупиняє загрузку
 container.addEventListener("click", (event) => {
-  event.preventDefault();
+    console.log(event.target.dataset.source);
+    event.preventDefault();
 });
+
