@@ -5,8 +5,6 @@ import "simplelightbox/dist/simple-lightbox.min.css";
 
 console.log(simpleLightbox)
 
-const lightbox = new SimpleLightbox('.gallery a', { /* options */ });
-
 const images = [
   {
     preview:
