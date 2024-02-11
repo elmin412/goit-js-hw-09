@@ -1,0 +1,2 @@
+import"./assets/styles-01b9ea18.js";const a=document.querySelector(".feedback-form"),e=a.elements.email,t=a.elements.message,o="feedback-form-state",s=localStorage.getItem(o);s&&(e.value=s.email,t.value=s.message);a.addEventListener("input",()=>{const l={email:e.value.trim(),message:t.value.trim()};localStorage.setItem(o,JSON.stringify(l))});a.addEventListener("submit",l=>{l.preventDefault();const m={email:e.value.trim(),message:t.value.trim()};m.email&&m.message&&(console.log(m),localStorage.removeItem(o),e.value="",t.value="")});
+//# sourceMappingURL=commonHelpers2.js.map
