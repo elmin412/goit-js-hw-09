@@ -3,9 +3,9 @@
   const textarea = form.elements.message;
   const localStorageKey = 'feedback-form-state';
   
-  const getState = localStorage.getItem(localStorageKey);
+  const getState = JSON.parse(localStorage.getItem(localStorageKey));
 
-  if (getState) {
+  if (getState && getState.email !== undefined && getState.message !== undefined) {
     emailInput.value = getState.email;
     textarea.value = getState.message;
   }
